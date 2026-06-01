@@ -7,7 +7,7 @@ Installation
 ------------
 To install *AnGELIca*, run::
 
-    pip install AnGELIca
+    pip install git+https://github.com/annerathsam/AnGELIca.git
 
 
 Dependencies
