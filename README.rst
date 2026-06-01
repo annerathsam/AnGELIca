@@ -98,3 +98,8 @@ Copyright 2026, Anne Viegas Rathsam.
 The source code is made available under the terms of the MIT license.
 
 If you make use of this code, please cite this package and its dependencies.
+
+
+Acknowledgements
+---------------------
+Special thanks to Miguel de Loreto Neto for helping to choose the code name.
