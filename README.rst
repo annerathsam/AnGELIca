@@ -82,7 +82,7 @@ Author
 
 Preferred citation
 ------------------
-A paper describing the fits adopted in the code is currently in preparation. For the time being, if you use this code in your research, please cite our previous works on the dataset. The BibTeX entry for the papers are:
+A paper describing the fits adopted in the code is currently in preparation. For the time being, if you use this code in your research, please cite our previous works on the dataset. The BibTeX entries for the papers are:
 
 .. code:: bibtex
 
