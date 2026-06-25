@@ -29,6 +29,7 @@ Example usage
     li, e_li = 1.46, 0.05 # 3D NLTE lithium abundance in dex
 
     result = AnGELIca.age_interp(feh, teff, li, f='gompertz', err_feh=e_feh, err_teff=e_teff, err_li=e_li)
+    # The function used to calculate residuals is a Gompertz function by default, but the code also accepts f='linear' and f='quadratic'
 
     age = result[0,0]
     std = result[0,1]
