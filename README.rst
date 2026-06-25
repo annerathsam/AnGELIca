@@ -104,6 +104,7 @@ archivePrefix = {arXiv},
       adsnote = {Provided by the SAO/NASA Astrophysics Data System}
 }
 
+.. code:: bibtex
 @ARTICLE{2023MNRAS.522.3217M,
        author = {{Martos}, Giulia and {Mel{\'e}ndez}, Jorge and {Rathsam}, Anne and {Carvalho Silva}, Gabriela},
         title = "{Metallicity and age effects on lithium depletion in solar analogues}",
@@ -122,6 +123,7 @@ archivePrefix = {arXiv},
       adsnote = {Provided by the SAO/NASA Astrophysics Data System}
 }
 
+.. code:: bibtex
 @ARTICLE{2023MNRAS.525.4642R,
        author = {{Rathsam}, Anne and {Mel{\'e}ndez}, Jorge and {Carvalho Silva}, Gabriela},
         title = "{Lithium depletion in solar analogs: age and mass effects}",
