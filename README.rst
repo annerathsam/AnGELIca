@@ -1,6 +1,6 @@
 *AnGELIca* package
 ---------------
-*AnGELIca* is a tool to estimate ages for FGK stars based on empirical relations between Li abundance, age, [Fe/H], and effective temperature from Rathsam et al. (in prep). Valid for stars with -0.3 dex <= [Fe/H] <= +0.4 dex and 5400 K <= Teff <= 6500 K.
+*AnGELIca* is a tool to estimate ages for FGK stars based on empirical relations between Li abundance, age, [Fe/H], and effective temperature from Rathsam et al. (in prep). Valid for stars in the solar vicinity with -0.3 dex <= [Fe/H] <= +0.4 dex and 5400 K <= Teff <= 6500 K.
 
 
 Installation
