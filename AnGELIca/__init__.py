@@ -1,1 +1,1 @@
-from .AnGELIca import age_interp, linear, quadratic, gompertz
+from .AnGELIca import age_predict
