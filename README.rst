@@ -12,10 +12,10 @@ To install *AnGELIca*, run::
 
 Dependencies
 ------------
-The dependencies of *AnGELIca* are `pandas <https://pandas.pydata.org/>`_ and `NumPy <https://numpy.org/>`_. 
+The dependencies of *AnGELIca* are `pandas <https://pandas.pydata.org/>`_, `NumPy <https://numpy.org/>`_, and `joblib <https://pypi.org/project/joblib/>`_. 
 These are installed using pip::
 
-    pip install pandas numpy
+    pip install pandas numpy joblib
   
   
 Example usage
@@ -26,10 +26,10 @@ Example usage
     # Estimating an age for a single star (errors are not required, but are accounted for in the reported uncertainty):
     teff, e_teff = 5977, 10 # in K
     feh, e_feh = 0.00, 0.05 # in dex
+    logg, e_logg = 4.44, 0.01 # in dex
     li, e_li = 1.46, 0.05 # 3D NLTE lithium abundance in dex
 
     result = AnGELIca.age_interp(feh, teff, li, f='gompertz', err_feh=e_feh, err_teff=e_teff, err_li=e_li)
-    # The function used to calculate residuals is a Gompertz function by default, but the code also accepts f='linear' and f='quadratic'
 
     age = result[0,0]
     std = result[0,1]
