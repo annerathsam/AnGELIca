@@ -1,6 +1,6 @@
 *AnGELIca* package
 ---------------
-*AnGELIca* is a tool to estimate ages for FGK stars based on empirical relations between Li abundance, age, [Fe/H], and effective temperature from Rathsam et al. (in prep). Valid for stars in the solar vicinity with -0.3 dex <= [Fe/H] <= +0.4 dex and 5400 K <= Teff <= 6500 K.
+*AnGELIca* is a tool to estimate ages for FGK stars based on empirical relations between Li abundance, age, [Fe/H], and effective temperature from Rathsam et al. (in prep). Valid for stars in the solar vicinity with -0.3 dex <= [Fe/H] <= +0.4 dex, 4.0 dex <= logg <= 4.6 dex, and 5400 K <= Teff <= 6500 K.
 
 
 Installation
@@ -23,53 +23,32 @@ Example usage
 
 .. code-block:: python
 
-    # Estimating an age for a single star (errors are not required, but are accounted for in the reported uncertainty):
-    teff, e_teff = 5977, 10 # in K
-    feh, e_feh = 0.00, 0.05 # in dex
-    logg, e_logg = 4.44, 0.01 # in dex
-    li, e_li = 1.46, 0.05 # 3D NLTE lithium abundance in dex
+    # Estimating ages for a sample of stars:
 
-    result = AnGELIca.age_interp(feh, teff, li, f='gompertz', err_feh=e_feh, err_teff=e_teff, err_li=e_li)
+    # The code expects an input table with columns "[Fe/H]" for metallicity (in dex),
+    # "teff" for effective temperature (in K), "logg" for log of the surface gravity (in dex),
+    # "Li_3D_NLTE" for the 3D NLTE A(Li) (in dex), and "e_[Fe/H]", "e_teff", "e_logg",
+    # and "e_Li" for errors.
 
-    age = result[0,0]
-    std = result[0,1]
-
-    print(f"Estimated age: {age:.3f} +/- {std:.3f} Gyr")
-
-    # Estimating ages from a sample of stars:
-
-    # Assuming an input table "sample.csv" with columns "id" for star identification, 
-    # "[Fe/H]" for metallicity (in dex), "teff" for effective temperature (in K), 
-    # "Li_3D_NLTE" for the 3D NLTE A(Li) (in dex), and e_X for errors 
+    import pandas as pd
+    import AnGELIca
 
     data = pd.read_csv("sample.csv") 
 
-    feh = np.array(data["[Fe/H]"])
-    teff = np.array(data["teff"])
-    li = np.array(data["Li_3D_NLTE"])
+    results = AnGELIca.age_predict(data)
 
-    e_feh = np.array(data["e_[Fe/H]"])
-    e_teff = np.array(data["e_teff"])
-    e_li = np.array(data["e_Li_3D_NLTE"])
+    # age_predict estimates errors by default
+    # New columns on the dataset: age, err_prop_teff, err_prop_feh, err_prop_logg, err_prop_li, age_err
+    # err_prop_X is the error propagated from each parameter
+    # age_err is the error on the age estimate, including every propagated error + intrinsic error from the model
+    # (taken as the standard deviation of the residuals of the fit)
 
-    results = AnGELIca.age_interp(feh, teff, li, err_feh=e_feh, err_teff=e_teff, err_li=e_li)
-    calc_ages = results[:,0]
-    std_ages = results[:,1]
+    # If you do not want to estimate errors, age_predict also accepts errors=False, and return "age" as the only new column
 
-    # To check the ages:
-    
-    for star, age, std_age, in zip(data["id"], calc_ages, std_ages):
-         print(f"{star}: {age:.3f} +/- {std_age:.3f} Gyr")
+    # Saving the results:
+    results.to_csv('sample_ages.csv', index=False)
 
-    # Saving to a file "output.csv":
-
-    data['Age'] = calc_ages.round(3)
-    data['Age_error'] = std_ages.round(3)
-
-    data.to_csv('sample_ages.csv', index=False)
-
-    # 'nan' values appear when the input parameters were out bounds.
-  
+    # 'nan' values appear when the input parameters were out bounds.  
   
 Contact
 ------------
