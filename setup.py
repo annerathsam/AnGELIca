@@ -8,4 +8,4 @@ setup(name='AnGELIca',
     author_email='annerathsam@usp.br',
     license='MIT',
     packages=['AnGELIca'],
-    install_requires=['numpy', 'pandas'])
+    install_requires=['numpy', 'pandas', 'joblib'])
