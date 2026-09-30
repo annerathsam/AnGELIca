@@ -38,12 +38,15 @@ Example usage
     results = AnGELIca.age_predict(data)
 
     # age_predict estimates errors by default
-    # New columns on the dataset: age, err_prop_teff, err_prop_feh, err_prop_logg, err_prop_li, age_err
+    # New columns on the dataset: age, err_prop_teff, err_prop_feh, err_prop_logg, 
+    # err_prop_li, age_err.
     # err_prop_X is the error propagated from each parameter
-    # age_err is the error on the age estimate, including every propagated error + intrinsic error from the model
-    # (taken as the standard deviation of the residuals of the fit)
+    # age_err is the error on the age estimate, including every propagated error + 
+    # the intrinsic error from the model (taken as the standard
+    # deviation of the residuals of the fit)
 
-    # If you do not want to estimate errors, age_predict also accepts errors=False, and return "age" as the only new column
+    # If you do not want to estimate errors, age_predict also accepts errors=False, and
+    # returns "age" as the only new column
 
     # Saving the results:
     results.to_csv('sample_ages.csv', index=False)
