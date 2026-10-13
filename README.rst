@@ -136,4 +136,4 @@ If you make use of this code, please cite this package and its dependencies.
 
 Acknowledgements
 ---------------------
-Special thanks to Miguel de Loreto Neto for helping to choose the code name.
+Special thanks to Dr. Friedrich Anders for the help with the code and to Miguel de Loreto Neto for choosing the code name.
